@@ -8,13 +8,10 @@ namespace LanguageFeatures.Controllers
     {
         public ViewResult Index()
         {
-            Dictionary<string, Product> products = new Dictionary<string, Product>
-            {
-                ["Kayak"] = new Product { Name = "Kayak", Price = 275M },
-                ["Lifejacket"] = new Product { Name = "Lifejacket", Price = 48.95M }
-            };
+            ShoppingCart cart = new ShoppingCart { Products = Product.GetProducts() };
+            decimal cartTotal = cart.TotalPrices();
         
-            return View("Index", products.Keys);
+            return View("Index", new string[] { $"Total: {cartTotal:C2}" });
         }
     }
 }

@@ -32,7 +32,7 @@ namespace LanguageFeatures.Controllers
                 .TotalPrices();
 
             decimal nameFilterTotal = productArray
-                .Filter(nameFilter)
+                .Filter(p => p?.Name?[0] == 'S')
                 .TotalPrices();
             
             return View("Index", new string[] {

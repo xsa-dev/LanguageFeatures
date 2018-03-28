@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace LanguageFeatures.Models
+﻿namespace LanguageFeatures.Models
 {
     public class Product
     {
@@ -11,13 +6,13 @@ namespace LanguageFeatures.Models
         {
             inStock = stock;
         }
-
-
+        
         public string Name { get; set; }
         public string Category { get; set; } = "Watersports";
         public decimal? Price { get; set; }
         public Product Related { get; set; }
         public bool inStock { get; }
+        public bool NameGeginsWithS => Name? [0] == 'S';
 
         public static Product[] GetProducts()
         {
